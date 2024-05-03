@@ -1,6 +1,13 @@
 # nix-hm
 nix home manager conf
 
+# install
+Install nix and home-manager. Then
+```
+ln -s "$(pwd)/home.nix" ~/.config/home-manager/home.nix
+```
+and `home-manager switch`. (Maybe can use `nh` after going to flakes.)
+
 # todo
 neovim
 astronvim
