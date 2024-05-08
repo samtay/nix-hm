@@ -12,7 +12,6 @@ and `home-manager switch`. (Maybe can use `nh` after going to flakes.)
 neovim
 astronvim
   - bash-langauge-server? shellcheck-bin necessary?
-xmonad
 zsh
 pure prompt (or try new one)
 tmux
@@ -20,7 +19,6 @@ tmux
 fzf
 git
 rofi
-taffybar 
 systemd lowbat unit
 qmk.ini
 kitty cfg
@@ -30,7 +28,7 @@ dunstrc
 feh
 background image
 .config/autostart/ cfg for polkit
-polkit + polkit-kde-agent
+polkit + polkit-kde-agent (for arch specific stuff, should split home.nix into common.nix and arch.nix)
 1pw
 firefox
 light
@@ -40,7 +38,7 @@ just
 tldr
 zathura
 texlive
-rust? or rustup 
+rust? or rustup
 clipmenu/clipnotify?
 dunst?
 fprintd?
