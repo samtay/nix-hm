@@ -102,6 +102,18 @@ return {
     end,
   },
 
+  -- show dotfiles by default
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
+      },
+    },
+  },
+
   -- my shit
   {
     "ledger/vim-ledger",
