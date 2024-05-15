@@ -89,5 +89,5 @@
 
   # neovim
   programs.neovim.enable = true;
-  xdg.configFile."nvim".source = ./nvim;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ./nvim;
 }
