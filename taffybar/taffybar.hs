@@ -17,7 +17,6 @@ import GI.Gtk (
 import System.Taffybar (startTaffybar)
 import System.Taffybar.Context (TaffyIO, TaffybarConfig (..))
 import System.Taffybar.Hooks (
-  withBatteryRefresh,
   withLogServer,
   withToggleServer,
  )
@@ -241,8 +240,7 @@ myTaffybarConfig =
           , barHeight = ExactSize 50
           , widgetSpacing = 10
           }
-   in withBatteryRefresh $
-        withLogServer $
+   in withLogServer $
           withToggleServer $ toTaffyConfig myConfig
 
 main = startTaffybar myTaffybarConfig

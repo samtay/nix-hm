@@ -85,7 +85,6 @@
   # taffybar
   services.taffybar.enable = true;
   xdg.configFile."taffybar/taffybar.hs".source = ./taffybar/taffybar.hs;
-  # TODO: update toggle theme switcher to sed this file and perform hm switch
   xdg.configFile."taffybar/taffybar.css".source = ./taffybar/gruvbox-light.css;
 
   # neovim

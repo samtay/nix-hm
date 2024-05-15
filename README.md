@@ -9,6 +9,10 @@ ln -s "$(pwd)/home.nix" ~/.config/home-manager/home.nix
 and `home-manager switch`. (Maybe can use `nh` after going to flakes.)
 
 # todo
+
+- keep ~/.scripts in here
+- but toggle-theme functionality can probably happen within hm
+
 neovim
 astronvim
   - bash-langauge-server? shellcheck-bin necessary?

@@ -16,6 +16,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.completion.copilot-lua" },
   {
