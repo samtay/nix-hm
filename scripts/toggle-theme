@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -eo
+
+theme=
+
+if grep -q light ~/.config/.theme; then
+	# make dark
+	theme=dark
+	sed -i 's/background = "light"/background = "dark"/' ~/code/nix-hm/nvim/lua/plugins/astrocore.lua
+	sed -i "s/gruvbox_light/gruvbox_dark/" ~/.config/kitty/kitty.conf
+	sed -i "s/gruvbox-light/gruvbox-dark/" ~/.gitconfig
+	sed -i "s/gruvbox-light/gruvbox-dark/" ~/.config/awesome/themes/gruvbox/theme.lua
+	sed -i "s/gruvbox-light/gruvbox-dark/" ~/.config/rofi/config.rasi
+	sed -i "s/myTheme = gruvboxLight/myTheme = gruvboxDark/" ~/code/nix-hm/taffybar/taffybar.hs
+	sed -i "s/myTheme = gruvboxLight/myTheme = gruvboxDark/" ~/code/nix-hm/xmonad/xmonad.hs
+	ln -fs ~/.config/bg/retro-linux-dark.png ~/.config/bg/retro-linux.png
+	sed -i 's/gruvbox-light/gruvbox-dark/' ~/code/nix-hm/home.nix
+	sed -i 's/GruvboxMaterialLight/GruvboxMaterialDark/' ~/code/nix-hm/home.nix
+	sed -i '/gruvbox_light/s/^/#/' ~/.config/dunst/dunstrc
+	sed -i '/gruvbox_dark/s/^#//' ~/.config/dunst/dunstrc
+else
+	# make light
+	theme=light
+	sed -i 's/background = "dark"/background = "light"/' ~/code/nix-hm/nvim/lua/plugins/astrocore.lua
+	sed -i "s/gruvbox_dark/gruvbox_light/" ~/.config/kitty/kitty.conf
+	sed -i "s/gruvbox-dark/gruvbox-light/" ~/.gitconfig
+	sed -i "s/gruvbox-dark/gruvbox-light/" ~/.config/awesome/themes/gruvbox/theme.lua
+	sed -i "s/gruvbox-dark/gruvbox-light/" ~/.config/rofi/config.rasi
+	sed -i "s/myTheme = gruvboxDark/myTheme = gruvboxLight/" ~/code/nix-hm/taffybar/taffybar.hs
+	sed -i "s/myTheme = gruvboxDark/myTheme = gruvboxLight/" ~/code/nix-hm/xmonad/xmonad.hs
+	ln -fs ~/.config/bg/retro-linux-light.png ~/.config/bg/retro-linux.png
+	sed -i 's/gruvbox-dark/gruvbox-light/' ~/code/nix-hm/home.nix
+	sed -i 's/GruvboxMaterialDark/GruvboxMaterialLight/' ~/code/nix-hm/home.nix
+	sed -i '/gruvbox_dark/s/^/#/' ~/.config/dunst/dunstrc
+	sed -i '/gruvbox_light/s/^#//' ~/.config/dunst/dunstrc
+fi
+
+# restart stuff
+feh --bg-scale --no-fehbg ~/.config/bg/retro-linux.png
+pkill -xf /usr/bin/dunst
+pkill -USR1 kitty
+home-manager switch -b backup
+systemctl --user restart taffybar.service
+
+# record current theme
+echo $theme >~/.config/.theme
+notify-send "Toggled to $theme theme"
