@@ -63,8 +63,6 @@ return {
                 "clippy",
                 "--workspace",
                 "--all-targets",
-                -- "--features",
-                -- "linkedproofs",
                 "--tests",
                 "--benches",
                 "--examples",
@@ -133,6 +131,7 @@ return {
         --   desc = "Toggle LSP semantic highlight (buffer)",
         --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
         -- },
+        gd = false,
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function

@@ -9,11 +9,14 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { import = "astrocommunity.pack.bash" },
+  -- sqls is a POS
+  -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.haskell" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.tailwindcss" },

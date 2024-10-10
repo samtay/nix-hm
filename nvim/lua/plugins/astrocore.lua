@@ -53,6 +53,10 @@ return {
     mappings = {
       -- first key is the mode
       [""] = {
+        ["gd"] = {
+          function() require("telescope.builtin").lsp_definitions() end,
+          desc = "Definition of current word",
+        },
         ["gy"] = { '"+y', desc = "Copy to system clipboard" },
         ["gp"] = { '"+p', desc = "Paste from system clipboard" },
         ["gP"] = { '"+P', desc = "Paste from system clipboard" },
@@ -181,6 +185,10 @@ return {
           "<cmd>sp ~/code/nix-hm/<cr>",
           desc = "Open home manager config",
         },
+        ["<Leader>.z"] = {
+          "<cmd>sp ~/.zshrc<cr>",
+          desc = "Open zshrc",
+        },
         ---------------------- rust  ----------------------
         ["<Leader>r"] = { false, desc = " Rust" },
         ["<Leader>rr"] = {
@@ -229,6 +237,11 @@ return {
         ["<Leader>mq"] = {
           "<cmd>FlutterQuit<cr>",
           desc = "End Flutter session",
+        },
+        ["<Leader>dx"] = { false, desc = " Dioxus" },
+        ["<Leader>dxt"] = {
+          "<cmd>%!dx translate<cr>",
+          desc = "Dioxus translate whole file",
         },
         ---------------------- theme/ui ----------------------
         ["<Leader>uT"] = {
@@ -312,6 +325,14 @@ return {
         ["<Leader>;"] = {
           "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
           desc = "Toggle comment for selection",
+        },
+        ["<Leader>dxt"] = {
+          "<cmd>'<,'>!dx translate<cr>",
+          desc = "Dioxus translate selection",
+        },
+        ["<Leader>dxf"] = {
+          "<cmd>'<,'>!dx fmt -r<cr>",
+          desc = "Dioxus format selection",
         },
       },
       t = {

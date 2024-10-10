@@ -246,15 +246,18 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn "light -U 5")
 
   -- Mute volume.
-  , ((0, xF86XK_AudioMute),
+  , ((0, xF86XK_AudioMute), do
+     spawn "pactl set-default-sink bluez_output.44_F0_9E_82_A4_4D.1"
      spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
 
   -- Decrease volume.
-  , ((0, xF86XK_AudioLowerVolume),
+  , ((0, xF86XK_AudioLowerVolume), do
+     spawn "pactl set-default-sink bluez_output.44_F0_9E_82_A4_4D.1"
      spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
 
   -- Increase volume.
-  , ((0, xF86XK_AudioRaiseVolume),
+  , ((0, xF86XK_AudioRaiseVolume), do
+     spawn "pactl set-default-sink bluez_output.44_F0_9E_82_A4_4D.1"
      spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
 
   -- Toggle workspace
