@@ -13,7 +13,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -36,6 +36,7 @@
     # '')
     pkgs.nixd
     pkgs.bottom
+    # pkgs.taffybar
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -65,7 +66,10 @@
   #  /etc/profiles/per-user/sam/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "firefox";
+    TERMINAL = "kitty";
   };
 
   # Let Home Manager install and manage itself.
@@ -86,6 +90,13 @@
   services.taffybar.enable = true;
   xdg.configFile."taffybar/taffybar.hs".source = ./taffybar/taffybar.hs;
   xdg.configFile."taffybar/taffybar.css".source = ./taffybar/gruvbox-light.css;
+
+  # kitty
+  programs.kitty = {
+    enable = true;
+    extraConfig = builtins.readFile ./kitty/kitty.conf;
+    themeFile = "GruvboxMaterialLightMedium";
+  };
 
   # neovim
   programs.neovim.enable = true;
