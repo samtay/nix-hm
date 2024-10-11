@@ -212,9 +212,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask, xK_s), submap . M.fromList $
       let h = spawn "vlc https://cams.cdn-surfline.com/cdn-ec/ec-hightowerpark/chunklist.m3u8"
           p = spawn "vlc https://cams.cdn-surfline.com/cdn-ec/ec-pelicanbeachpark/chunklist.m3u8"
+          f = spawn "vlc https://cams.cdn-surfline.com/cdn-ec/ec-follypiernorth/playlist.m3u8"
       in [ ((0, xK_h), h)
          , ((0, xK_p), p)
-         , ((0, xK_a), h >> p)
+         , ((0, xK_f), f)
+         , ((0, xK_a), f >> h >> p)
          ])
 
   -- Spawn firefox on mod + f
