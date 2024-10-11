@@ -34,6 +34,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.zsh
     pkgs.nixd
     pkgs.bottom
     # pkgs.taffybar
@@ -252,6 +253,10 @@
       ss = "stash save";
     };
   };
+
+  # zsh
+  programs.zsh.enable = true;
+  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink ./zsh/zshrc;
 
   # xmonad
   xsession = {
